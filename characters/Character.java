@@ -6,14 +6,14 @@ public abstract class Character{
     protected Move location;
     protected CharacterType type;
 
-    public void doMove(char direction){
-        location.findDestination(direction);
-    }
     public void createCharacter(){
         type.createCharacter();
     }
-    public void moveCharacter(int goFurther){
-        location.changeLocation(goFurther);
+    public int[][] moveCharacter(int goFurther){
+        return location.changeLocation(goFurther);
+    }
+    public int[][] getLocation(){
+        return location.getLocation();
     }
 
 }

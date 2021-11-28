@@ -1,9 +1,9 @@
 package StrategyProject.characters.roles;
 
 import StrategyProject.characters.CharacterType;
-import StrategyProject.characters.types.Goiing;
+import StrategyProject.characters.types.Going;
 
-public class Sorcerer extends Goiing implements CharacterType {
+public class Sorcerer extends Going implements CharacterType {
     final String type = "Sorcerer";
 
     public Sorcerer() {

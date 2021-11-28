@@ -1,5 +1,6 @@
 package StrategyProject;
 
+import StrategyProject.characters.Character;
 import StrategyProject.characters.DisplayCharacter;
 
 import java.util.Arrays;
@@ -11,10 +12,14 @@ public class Board {
 
     private char[][] sideBar;
     private char[][] board;
+    Character character;
+    DisplayCharacter displayCharacter;
 
-    public Board() {
+    public Board(Character character) {
         sideBar = new char[HEIGHT][WIDTH / 4];
         board = new char[HEIGHT][WIDTH - sideBar[0].length];
+        this.character = character;
+        displayCharacter = new DisplayCharacter();
     }
 
     private void obstacles() {
@@ -30,12 +35,12 @@ public class Board {
         boolean newField = true;
         do {
 //            if (newField) {
-                limit--;
-                for (int i = 0; i < start.length; i++) {
-                    board[start[i][0]][start[i][1]] = ' ';
-                }
+            limit--;
+            for (int i = 0; i < start.length; i++) {
+                board[start[i][0]][start[i][1]] = ' ';
+            }
 //            }
-            int direction = 2*(int) Math.pow(-1, random.nextInt(2));
+            int direction = 2 * (int) Math.pow(-1, random.nextInt(2));
             int coordinate = random.nextInt(2);
             int licznik = 0;
 
@@ -50,9 +55,9 @@ public class Board {
 //            newField = false;
             if (licznik == start.length) {
 //                if (board[start[0][0] + ((coordinate + 1) % 2) * direction][start[0][1] + ((coordinate + 0) % 2) * direction] != ' ') {
-                    for (int i = 0; i < start.length; i++) {
-                        start[i][coordinate] += direction;
-                    }
+                for (int i = 0; i < start.length; i++) {
+                    start[i][coordinate] += direction;
+                }
 //                    newField = true;
 //                }
             }
@@ -85,13 +90,36 @@ public class Board {
     public void initBoard() {
         drawBoard();
         drawSideBar();
+        updateBoard(0);
+    }
+
+    public void drawScreen() {
         for (int i = 0; i < HEIGHT; i++) {
             System.out.print(Arrays.toString(board[i]));
             System.out.println(Arrays.toString(sideBar[i]));
         }
     }
 
-    public void updateBoard(int goFurther) {
-        DisplayCharacter.displayCharacter();
+    public void space() {
+        for (int i = 0; i < 10; i++) System.out.println("");
     }
+
+    public void updateBoard(int goFurther) {
+        int[][] oldLocation = character.getLocation();
+        for (int i = 0; i < oldLocation.length; i++) {
+            board[oldLocation[i][0]][oldLocation[i][1]] = ' ';
+        }
+
+        int[][] newLocation = character.moveCharacter(goFurther);
+        char[] shape = displayCharacter.characterShape(goFurther);
+        if (shape.length > 1) {
+            for (int i = 0; i < newLocation.length; i++) {
+                board[oldLocation[i][0]][oldLocation[i][1]] = ' ';
+                board[newLocation[i][0]][newLocation[i][1]] = shape[i];
+            }
+            space();
+            drawScreen();
+        }
+    }
+
 }

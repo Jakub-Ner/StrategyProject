@@ -1,23 +1,37 @@
 package StrategyProject.characters;
 
 public class DisplayCharacter {
-    private char[] front = new char[]{
+    int counter = 1;
+    final char[] front = new char[]{
             '/', '\\',
             'd', 'b'};
 
-    private char[] back = new char[]{
+    final char[] back = new char[]{
             '/', '\\',
             'b', 'd'};
 
-    private char[] leftSide = new char[]{
+    final char[] leftSide = new char[]{
             'J', 'J',
             'd', 'd'};
 
-    private char[] rightSide = new char[]{
+    final char[] rightSide = new char[]{
             'L', 'L',
             'b', 'b'};
 
-    public static void displayCharacter(){
-
+    public char[] characterShape(int goFurther){
+        if (goFurther == 8){
+            return back;
+        }
+        if (goFurther == 2 || (counter==1 && goFurther == 0)){
+            counter--;
+            return front;
+        }
+        if (goFurther == 4){
+            return leftSide;
+        }
+        if (goFurther == 6){
+            return rightSide;
+        }
+        return new char[0];
     }
 }

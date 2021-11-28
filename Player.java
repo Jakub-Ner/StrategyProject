@@ -1,5 +1,6 @@
 package StrategyProject;
 
+import StrategyProject.characters.Character;
 import StrategyProject.characters.Characters;
 
 import java.util.Scanner;
@@ -7,8 +8,6 @@ import java.util.Scanner;
 public class Player extends Characters {
     public Player() {
         generateCharacter();
-        int option = new Scanner(System.in).nextInt();
-
     }
 
     public void generateCharacter() {
@@ -18,5 +17,6 @@ public class Player extends Characters {
             super.listOfCharacters.add(super.availableTypes[option - 1]);
         }
     }
+    public Character getLastCharacter(){return super.listOfCharacters.get(listOfCharacters.size()-1);}
 
 }
