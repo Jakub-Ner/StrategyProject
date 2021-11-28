@@ -10,7 +10,7 @@ public class Go implements Move {
     }
 
     @Override
-    public void move(int direction) {
+    public void move(char direction) {
         System.out.println("ide");
 
     }

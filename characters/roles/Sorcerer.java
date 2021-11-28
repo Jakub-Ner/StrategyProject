@@ -1,10 +1,9 @@
 package StrategyProject.characters.roles;
 
-import StrategyProject.characters.Character;
 import StrategyProject.characters.CharacterType;
-import StrategyProject.characters.types.Unflyable;
+import StrategyProject.characters.types.Goiing;
 
-public class Sorcerer extends Unflyable implements CharacterType {
+public class Sorcerer extends Goiing implements CharacterType {
     final String type = "Sorcerer";
 
     public Sorcerer() {

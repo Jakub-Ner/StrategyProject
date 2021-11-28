@@ -6,7 +6,7 @@ public abstract class Character{
     protected Move location;
     protected CharacterType type;
 
-    public void doMove(int direction){
+    public void doMove(char direction){
         location.move(direction);
     }
     public void createCharacter(){

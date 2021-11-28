@@ -1,9 +1,9 @@
 package StrategyProject.characters.roles;
 
 import StrategyProject.characters.CharacterType;
-import StrategyProject.characters.types.Flyable;
+import StrategyProject.characters.types.Flying;
 
-public class Harpy extends Flyable implements CharacterType {
+public class Harpy extends Flying implements CharacterType {
     final String type = "Harpy";
 
     public Harpy() {
