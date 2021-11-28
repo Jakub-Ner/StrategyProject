@@ -1,5 +1,7 @@
 package StrategyProject;
 
+import StrategyProject.characters.DisplayCharacter;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -13,8 +15,6 @@ public class Board {
     public Board() {
         sideBar = new char[HEIGHT][WIDTH / 4];
         board = new char[HEIGHT][WIDTH - sideBar[0].length];
-        initBoard();
-//        updateBoard();
     }
 
     private void obstacles() {
@@ -91,7 +91,7 @@ public class Board {
         }
     }
 
-    public void updateBoard() {
-
+    public void updateBoard(int goFurther) {
+        DisplayCharacter.displayCharacter();
     }
 }

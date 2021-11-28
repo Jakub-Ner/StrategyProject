@@ -15,14 +15,11 @@ public class Main {
 //        listOfCharacters.get(0).doMove('w');
 //        listOfCharacters.get(0).getType();
 
-//        Scanner input = new Scanner(System.in);  // Create a Scanner object
-//        System.out.println("select character type");
-//
-//        String userName = input.nextLine();
-//        new Player();
-        new Board();
+        new Game().run();
+
     }
-    }
+
+}
 
 
 

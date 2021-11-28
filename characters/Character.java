@@ -7,18 +7,13 @@ public abstract class Character{
     protected CharacterType type;
 
     public void doMove(char direction){
-        location.move(direction);
+        location.findDestination(direction);
     }
     public void createCharacter(){
         type.createCharacter();
     }
-
-    public void getLocation() {
-        System.out.println(location.x+" "+ location.y);
-    }
-
-    public CharacterType getType() {
-        return type;
+    public void moveCharacter(int goFurther){
+        location.changeLocation(goFurther);
     }
 
 }

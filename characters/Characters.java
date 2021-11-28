@@ -7,6 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Characters {
-    final CharacterType [] availableTypes = new CharacterType[]{new Sorcerer(), new Harpy()};
-    protected List<CharacterType> listOfCharacters = new ArrayList<>();
+    protected final Character [] availableTypes = new Character[]{new Sorcerer(), new Harpy()};
+    protected List<Character> listOfCharacters = new ArrayList<>();
 }
