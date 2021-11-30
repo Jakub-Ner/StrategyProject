@@ -12,6 +12,7 @@ public class Board {
 
     private char[][] sideBar;
     private char[][] board;
+    private char [][] obstacles;
     Character character;
     DisplayCharacter displayCharacter;
 
@@ -23,9 +24,13 @@ public class Board {
     }
 
     private void obstacles() {
+        Random random = new Random();
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                board[i][j] = '#';
+                if (random.nextInt(100)> 80){
+                    board[i][j] = 'X';
+                }
+                else board[i][j] = '#';
             }
         }
     }
@@ -46,8 +51,8 @@ public class Board {
 
             for (int i = 0; i < start.length; i++) {
                 if (start[i][coordinate] + direction <= 0
-                        || start[i][coordinate] + direction >= board.length
-                        || start[i][coordinate] + direction >= board[0].length) {
+                        || (coordinate == 0 && start[i][coordinate] + direction >= board.length)
+                        || (coordinate == 1 && start[i][coordinate] + direction >= board[0].length)) {
                     break;
                 }
                 licznik++;
@@ -75,7 +80,7 @@ public class Board {
         int[][] fields2 = new int[][]{
                 {board.length - 2, board[0].length - 2}, {board.length - 2, board[0].length - 1},
                 {board.length - 1, board[0].length - 2}, {board.length - 1, board[0].length - 1}};
-        partOfBoard(3, fields2);
+        partOfBoard(12, fields2);
 
     }
 

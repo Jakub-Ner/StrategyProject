@@ -31,7 +31,7 @@ public class Game extends BackToStart {
     }
 
     public int welcomeScreen() {
-        System.out.println("elo\n [1] Play\n [2] Create map ");
+        System.out.println("elo\n [1] Play");
         super.option = new Scanner(System.in).nextInt();
 
         for (int availableOpion : options) {

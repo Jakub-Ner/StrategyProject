@@ -4,7 +4,6 @@ import StrategyProject.characters.CharacterType;
 import StrategyProject.characters.types.Going;
 
 public class Sorcerer extends Going implements CharacterType {
-    final String type = "Sorcerer";
 
     public Sorcerer() {
     }

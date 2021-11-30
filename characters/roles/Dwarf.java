@@ -1,16 +1,16 @@
 package StrategyProject.characters.roles;
 
 import StrategyProject.characters.CharacterType;
-import StrategyProject.characters.types.Flying;
+import StrategyProject.characters.types.Grubbing;
 
-public class Harpy extends Flying implements CharacterType {
+public class Dwarf extends Grubbing implements CharacterType {
     final String type = "Harpy";
 
-    public Harpy() {
+    public Dwarf() {
     }
 
     @Override
     public void createCharacter() {
-        System.out.println("I am a Harpy");
+        System.out.println("I am a Dwarf");
     }
 }

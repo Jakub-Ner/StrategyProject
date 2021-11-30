@@ -1,11 +1,5 @@
 package StrategyProject;
 
-import StrategyProject.characters.Character;
-import StrategyProject.characters.roles.Harpy;
-import StrategyProject.characters.roles.Sorcerer;
-
-import java.util.*;
-
 public class Main {
     public static void main(String[] args) {
 //        List<Character> listOfCharacters = new ArrayList<>();

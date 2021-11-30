@@ -18,14 +18,20 @@ public class Go implements Move {
         return location;
     }
 
-    protected boolean condition(char[][] board, char sign) {
+    protected boolean condition(char[][] board, char[] signs) {
         for (int i = 0; i < location.length; i++) {
-            if (location[i][0] >= 0 && location[i][0] < board.length &&
-                    location[i][1] >= 0 && location[i][1] < board[0].length) {
-                if (board[location[i][0]][location[i][1]] != sign) {
-                    return false;
+            if (location[i][0] < 0 || location[i][0] >= board.length ||
+                    location[i][1] < 0 || location[i][1] >= board[0].length) {
+                return false;
+            }
+            int counter = 0;
+            for (char sign : signs) {
+                if (board[location[i][0]][location[i][1]] == sign) {
+                    counter++;
+                    break;
                 }
-            } else return false;
+            }
+            if (counter == 0) return false;
         }
         return true;
     }
@@ -33,6 +39,12 @@ public class Go implements Move {
     @Override
     public int[][] moveCharacter(int goFurther, char[][] board) {
         findDestination(goFurther);
+        int [][] oldLocation = moveCharacterIngredient(goFurther, board);
+        if (!condition(board, signs)) location = oldLocation;
+        return location;
+    }
+
+    protected int[][] moveCharacterIngredient(int goFurther, char[][] board){
         int[][] oldLocation = new int[location.length][];
         for (int i = 0; i < location.length; i++)
             oldLocation[i] = location[i].clone();
@@ -40,14 +52,7 @@ public class Go implements Move {
         for (int i = 0; i < location.length; i++) {
             location[i][coordinate] += direction;
         }
-        int counter = 0;
-        for (char sign : signs) {
-            if (!condition(board, sign)) {
-                counter++;
-            }
-        }
-        if (counter == signs.length) location = oldLocation;
-        return location;
+        return oldLocation;
     }
 
     @Override
