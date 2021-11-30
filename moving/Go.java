@@ -1,9 +1,12 @@
 package StrategyProject.moving;
 
+import java.util.Arrays;
+
 public class Go implements Move {
     protected int coordinate = 0;
     protected int direction = 0;
-    protected int[][] loation = new int[][]{
+    private char[] signs = new char[]{' '};
+    protected int[][] location = new int[][]{
             {0, 0}, {0, 1},
             {1, 0}, {1, 1}};
 
@@ -12,18 +15,39 @@ public class Go implements Move {
 
     @Override
     public int[][] getLocation() {
-        return loation;
+        return location;
+    }
+
+    protected boolean condition(char[][] board, char sign) {
+        for (int i = 0; i < location.length; i++) {
+            if (location[i][0] >= 0 && location[i][0] < board.length &&
+                    location[i][1] >= 0 && location[i][1] < board[0].length) {
+                if (board[location[i][0]][location[i][1]] != sign) {
+                    return false;
+                }
+            } else return false;
+        }
+        return true;
     }
 
     @Override
-    public int[][] changeLocation(int goFurther) {
+    public int[][] moveCharacter(int goFurther, char[][] board) {
         findDestination(goFurther);
+        int[][] oldLocation = new int[location.length][];
+        for (int i = 0; i < location.length; i++)
+            oldLocation[i] = location[i].clone();
 
-
-        for (int i = 0; i < loation.length; i++) {
-            loation[i][coordinate] += direction;
+        for (int i = 0; i < location.length; i++) {
+            location[i][coordinate] += direction;
         }
-        return loation;
+        int counter = 0;
+        for (char sign : signs) {
+            if (!condition(board, sign)) {
+                counter++;
+            }
+        }
+        if (counter == signs.length) location = oldLocation;
+        return location;
     }
 
     @Override

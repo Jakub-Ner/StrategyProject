@@ -105,16 +105,15 @@ public class Board {
     }
 
     public void updateBoard(int goFurther) {
-        int[][] oldLocation = character.getLocation();
-        for (int i = 0; i < oldLocation.length; i++) {
-            board[oldLocation[i][0]][oldLocation[i][1]] = ' ';
+        int[][] eraseCharacterFromBoard = character.getLocation();
+        for (int i = 0; i < eraseCharacterFromBoard.length; i++) {
+            board[eraseCharacterFromBoard[i][0]][eraseCharacterFromBoard[i][1]] = ' ';
         }
 
-        int[][] newLocation = character.moveCharacter(goFurther);
+        int[][] newLocation = character.moveCharacter(goFurther, board);
         char[] shape = displayCharacter.characterShape(goFurther);
         if (shape.length > 1) {
             for (int i = 0; i < newLocation.length; i++) {
-                board[oldLocation[i][0]][oldLocation[i][1]] = ' ';
                 board[newLocation[i][0]][newLocation[i][1]] = shape[i];
             }
             space();
