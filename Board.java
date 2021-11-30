@@ -12,7 +12,6 @@ public class Board {
 
     private char[][] sideBar;
     private char[][] board;
-    private char [][] obstacles;
     Character character;
     DisplayCharacter displayCharacter;
 

@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Go implements Move {
     protected int coordinate = 0;
     protected int direction = 0;
+    protected int specialMovement = 0;
     private char[] signs = new char[]{' '};
     protected int[][] location = new int[][]{
             {0, 0}, {0, 1},
@@ -27,6 +28,7 @@ public class Go implements Move {
             int counter = 0;
             for (char sign : signs) {
                 if (board[location[i][0]][location[i][1]] == sign) {
+                    if (sign != ' ') specialMovement++;
                     counter++;
                     break;
                 }
