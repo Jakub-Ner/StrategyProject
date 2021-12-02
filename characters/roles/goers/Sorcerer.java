@@ -1,4 +1,4 @@
-package StrategyProject.characters.roles;
+package StrategyProject.characters.roles.goers;
 
 import StrategyProject.characters.CharacterType;
 import StrategyProject.characters.types.Going;

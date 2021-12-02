@@ -1,10 +1,9 @@
-package StrategyProject.characters.roles;
+package StrategyProject.characters.roles.grubbers;
 
 import StrategyProject.characters.CharacterType;
 import StrategyProject.characters.types.Grubbing;
 
 public class Dwarf extends Grubbing implements CharacterType {
-    final String type = "Harpy";
 
     public Dwarf() {
     }
