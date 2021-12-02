@@ -5,42 +5,55 @@ import java.util.Scanner;
 
 public class Game extends BackToStart {
     final int[] options = new int[]{1, 2};
+    protected int option;
+
 
     public Game() {
     }
 
     public void run() {
-        super.option = 0;
+        option = 0;
         Player player;
         Board board;
 
         while (option == 0) {
-            super.option = welcomeScreen();
+            option = welcomeScreen();
         }
-        if (super.option == 1) {
+        if (option == 1) {
             player = new Player();
             board = new Board(player.getLastCharacter());
             board.initBoard();
-            while (super.option != 1234) {
-                super.option = new Scanner(System.in).nextInt();
-                board.updateBoard(super.option);
+            while (option != 1234) {
+                takeInput();
+                board.updateBoard(option);
             }
         }
-        super.back();
-
     }
 
     public int welcomeScreen() {
         System.out.println("elo\n [1] Play");
-        super.option = new Scanner(System.in).nextInt();
-
+        takeInput();
         for (int availableOpion : options) {
-            if (super.option == availableOpion) {
-                return super.option;
+            if (option == availableOpion) {
+                return option;
             }
         }
         System.out.println("Input one value of " + Arrays.toString(options));
         return 0;
+    }
+
+    private void takeInput() {
+        option = 0;
+        String input = new Scanner(System.in).nextLine();
+        if (!super.back(input)) {
+            int counter = 0;
+            while (counter < input.length() && input.charAt(counter) > '9') {
+                counter++;
+            }
+            if(counter < input.length()){
+                option = (int)(input.charAt(counter) - '0');
+            }
+        }
     }
 
 

@@ -10,7 +10,6 @@ public class Main {
 //        listOfCharacters.get(0).getType();
 
         new Game().run();
-
     }
 
 }
