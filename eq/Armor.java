@@ -1,4 +1,10 @@
 package StrategyProject.eq;
 
-public interface Armor {
+public abstract class Armor {
+    int armor;
+    int magicResistance;
+    boolean specialEffect;
+
+    public String getArmorName(){return this.getClass().getSimpleName();}
+
 }

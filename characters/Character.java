@@ -9,6 +9,7 @@ public abstract class Character{
     public void createCharacter(){
         type.createCharacter();
     }
+
     public int[][] moveCharacter(int goFurther, char[][] board){
         return location.moveCharacter(goFurther, board);
     }

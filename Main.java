@@ -1,15 +1,14 @@
 package StrategyProject;
 
-public class Main {
-    public static void main(String[] args) {
-//        List<Character> listOfCharacters = new ArrayList<>();
-//        listOfCharacters.add(new Harpy());
-//        listOfCharacters.get(0).createCharacter();
-//        listOfCharacters.get(0).getLocation();
-//        listOfCharacters.get(0).doMove('w');
-//        listOfCharacters.get(0).getType();
+import StrategyProject.characters.Characters;
 
-        new Game().run();
+public class Main {
+//    public static void main(String[] args) {
+//        new Game().run();
+//    }
+
+    public static void main(String[] args){
+        Characters.funkcja();
     }
 
 }
