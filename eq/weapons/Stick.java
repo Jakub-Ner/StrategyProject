@@ -2,10 +2,9 @@ package StrategyProject.eq.weapons;
 
 import StrategyProject.characters.roles.PhysicalPower;
 
-public class Hammer extends Weapon {
-
-    public Hammer() {
-        super(5, false);
+public class Stick extends Weapon{
+    public Stick() {
+        super(2, true);
         super.typeOfAttack = new PhysicalPower();
 
     }

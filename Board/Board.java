@@ -1,4 +1,4 @@
-package StrategyProject;
+package StrategyProject.Board;
 
 import StrategyProject.characters.Character;
 import StrategyProject.characters.DisplayCharacter;
@@ -10,22 +10,22 @@ public class Board {
     final int HEIGHT = 25;
     final int WIDTH = 50;
 
-    private char[][] sideBar;
+    SideBar sideBar;
     private char[][] board;
     Character character;
     DisplayCharacter displayCharacter;
 
     public Board(Character character) {
-        sideBar = new char[HEIGHT][WIDTH / 4];
-        board = new char[HEIGHT][WIDTH - sideBar[0].length];
+        board = new char[HEIGHT][WIDTH*3/4];
+        sideBar = new SideBar(HEIGHT, WIDTH/4);
         this.character = character;
         displayCharacter = new DisplayCharacter();
     }
 
     private void obstacles() {
         Random random = new Random();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
+        for (int i = 0; i < HEIGHT; i++) {
+            for (int j = 0; j < WIDTH*3/4; j++) {
                 if (random.nextInt(100)> 80){
                     board[i][j] = 'X';
                 }
@@ -83,24 +83,18 @@ public class Board {
 
     }
 
-    private void drawSideBar() {
-        for (int i = 0; i < sideBar.length; i++) {
-            for (int j = 0; j < sideBar[0].length; j++) {
-                sideBar[i][j] = '|';
-            }
-        }
-    }
+
 
     public void initBoard() {
         drawBoard();
-        drawSideBar();
+        sideBar.drawSideBar();
         updateBoard(0);
     }
 
     public void drawScreen() {
         for (int i = 0; i < HEIGHT; i++) {
             System.out.print(Arrays.toString(board[i]));
-            System.out.println(Arrays.toString(sideBar[i]));
+            System.out.println(Arrays.toString(sideBar.getLine(i)));
         }
     }
 

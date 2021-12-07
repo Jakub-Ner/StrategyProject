@@ -1,5 +1,7 @@
 package StrategyProject;
 
+import StrategyProject.Board.Board;
+
 import java.util.Arrays;
 import java.util.Scanner;
 

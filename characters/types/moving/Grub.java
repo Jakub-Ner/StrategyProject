@@ -1,4 +1,4 @@
-package StrategyProject.moving;
+package StrategyProject.characters.types.moving;
 
 public class Grub extends Go {
     private char[] signs = new char[]{' ', '#'};

@@ -2,8 +2,9 @@ package StrategyProject;
 
 import StrategyProject.characters.Character;
 import StrategyProject.characters.Characters;
-import StrategyProject.eq.Armor;
-import StrategyProject.eq.Weapon;
+import StrategyProject.eq.armors.Armor;
+import StrategyProject.eq.Equipment;
+import StrategyProject.eq.weapons.Weapon;
 
 import java.util.Scanner;
 
@@ -18,11 +19,29 @@ public class Player extends Characters {
     }
 
     public void chooseItems() {
+        Equipment eq = new Equipment();
+        int option = chooseWeapon();
+        currentWeapon = eq.availableWeapons[option - 1];
+        eq.listOfWeapons.add(currentWeapon);
+
+        option = chooseArmor();
+        currentArmor = eq.availableArmors[option - 1];
+        eq.listOfArmors.add(currentArmor);
+    }
+
+    private int chooseWeapon(){
         System.out.println("Select weapon\n" +
-                " [1]-Hammer");
+                " [1]-Hammer\n" +
+                " [2]-Stick");
         int option = new Scanner(System.in).nextInt();
-        currentWeapon = super.availableWeapons[option - 1];
-        super.listOfWeapons.add(currentWeapon);
+        return option;
+    }
+    private int chooseArmor(){
+        System.out.println("Select weapon\n" +
+                " [1]-Armor of Warmog\n" +
+                " [2]-Rag");
+        int option = new Scanner(System.in).nextInt();
+        return option;
     }
 
     public void generateCharacter() {

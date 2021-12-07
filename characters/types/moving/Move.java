@@ -1,4 +1,4 @@
-package StrategyProject.moving;
+package StrategyProject.characters.types.moving;
 
 public interface Move {
     abstract void findDestination(int direction);

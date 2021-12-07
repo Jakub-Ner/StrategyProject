@@ -1,6 +1,4 @@
-package StrategyProject.moving;
-
-import java.util.Arrays;
+package StrategyProject.characters.types.moving;
 
 public class Go implements Move {
     protected int coordinate = 0;

@@ -1,10 +1,6 @@
 package StrategyProject.characters.roles;
 
-import StrategyProject.eq.Weapon;
-
-public class PhysicalPower implements CharacterTypeOfAttack{
+public class PhysicalPower implements TypeOfPower {
     @Override
-    public void attack(Weapon weapon) {
-
-    }
+    public String typeOfPower() {return "Physical Power";}
 }
