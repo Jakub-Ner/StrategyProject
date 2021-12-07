@@ -8,6 +8,9 @@ public class Animal extends Grubbing implements CharacterType {
 
     public Animal() {
         super.typeOfPower = new PhysicalPower();
+        super.hp =18;
+        super.magicResistance = 3;
+        super.armor = 8;
     }
 
     @Override

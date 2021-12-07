@@ -1,5 +1,10 @@
 package StrategyProject.characters.types.moving;
 
+import StrategyProject.Fight;
+
+import java.util.Arrays;
+import java.util.Random;
+
 public class Go implements Move {
     protected int coordinate = 0;
     protected int direction = 0;
@@ -30,6 +35,11 @@ public class Go implements Move {
                     counter++;
                     break;
                 }
+                else if(board[location[i][0]][location[i][1]] < '0' || board[location[i][0]][location[i][1]] > '9'){
+                    Fight.fight();
+
+                }
+
             }
             if (counter == 0) return false;
         }
@@ -37,14 +47,30 @@ public class Go implements Move {
     }
 
     @Override
+    public  int[][] moveNPC(char[][] board) {
+        int x = new Random().nextInt(board[0].length - 5)+4;
+        int y = new Random().nextInt(board.length - 5)+4;
+
+        for (int i = 0; i < location.length; i++) {
+            location[i][0] = y;
+            location[i][1] = x;
+        }
+        location[1][1]+=1;
+        location[2][0]+=1;
+        location[3][0]+=1;
+        location[3][1]+=1;
+        return location;
+    }
+
+    @Override
     public int[][] moveCharacter(int goFurther, char[][] board) {
         findDestination(goFurther);
-        int [][] oldLocation = moveCharacterIngredient(goFurther, board);
+        int[][] oldLocation = moveCharacterIngredient();
         if (!condition(board, signs)) location = oldLocation;
         return location;
     }
 
-    protected int[][] moveCharacterIngredient(int goFurther, char[][] board){
+    protected int[][] moveCharacterIngredient() {
         int[][] oldLocation = new int[location.length][];
         for (int i = 0; i < location.length; i++)
             oldLocation[i] = location[i].clone();

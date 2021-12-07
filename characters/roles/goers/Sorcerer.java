@@ -8,6 +8,9 @@ public class Sorcerer extends Going implements CharacterType {
 
     public Sorcerer() {
         super.typeOfPower = new Magic();
+        super.hp =8;
+        super.magicResistance = 18;
+        super.armor = 1;
     }
 
     @Override

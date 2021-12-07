@@ -10,7 +10,7 @@ public class Grub extends Go {
             return location;
         }
         findDestination(goFurther);
-        int[][] oldLocation = super.moveCharacterIngredient(goFurther, board);
+        int[][] oldLocation = super.moveCharacterIngredient();
         if (!super.condition(board, this.signs)) location = oldLocation;
         return location;
     }

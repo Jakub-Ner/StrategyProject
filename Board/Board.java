@@ -1,5 +1,6 @@
 package StrategyProject.Board;
 
+import StrategyProject.NPC;
 import StrategyProject.Player;
 import StrategyProject.characters.Character;
 import StrategyProject.characters.DisplayCharacter;
@@ -9,16 +10,17 @@ import java.util.Random;
 
 public class Board {
     final int HEIGHT = 25;
-    final int WIDTH = 56;
+    final int WIDTH = 61;
 
     SideBar sideBar;
     private char[][] board;
+    NPC npc;
     Character character;
     DisplayCharacter displayCharacter;
 
     public Board(Character character) {
-        board = new char[HEIGHT][WIDTH*3/4];
-        sideBar = new SideBar(HEIGHT, WIDTH/4);
+        board = new char[HEIGHT][WIDTH * 3 / 4];
+        sideBar = new SideBar(HEIGHT, WIDTH / 4);
         this.character = character;
         displayCharacter = new DisplayCharacter();
     }
@@ -26,11 +28,10 @@ public class Board {
     private void obstacles() {
         Random random = new Random();
         for (int i = 0; i < HEIGHT; i++) {
-            for (int j = 0; j < WIDTH*3/4; j++) {
-                if (random.nextInt(100)> 80){
+            for (int j = 0; j < WIDTH * 3 / 4; j++) {
+                if (random.nextInt(100) > 80) {
                     board[i][j] = 'X';
-                }
-                else board[i][j] = '#';
+                } else board[i][j] = '#';
             }
         }
     }
@@ -85,18 +86,35 @@ public class Board {
     }
 
 
-
     public void initBoard(Player player) {
         drawBoard();
         sideBar.drawSideBar(player);
+        drawNPC();
         updateBoard(0);
+    }
+
+    private void drawNPC() {
+        npc = new NPC(board);
+
+        for (int i = 0; i < npc.getListOfNPC().size(); i++) {
+            int[][] npcLocation = npc.getListOfNPC().get(i).getLocation();
+            for (int j = 0; j < npcLocation.length; j++) {
+                board[npcLocation[j][0]][npcLocation[j][1]] = (char)('0'+i%10);
+            }
+        }
     }
 
     public void drawScreen() {
         for (int i = 0; i < HEIGHT; i++) {
             System.out.print(Arrays.toString(board[i]));
-            System.out.println(Arrays.toString(sideBar.getLine(i)));
+            if (i <= HEIGHT / 2 + 1) {
+                System.out.print(Arrays.toString(sideBar.getLine(i)));
+            } else {
+                int x = 10;
+            }
+            System.out.println(" ");
         }
+
     }
 
     public void space() {

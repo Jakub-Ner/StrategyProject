@@ -17,36 +17,36 @@ public class SideBar {
     public void drawSideBar(Player player) {
         createLines(player);
         emptySpace();
-        int margin = (HEIGHT - lines.length) / 2;
-        for (int i = margin; i < lines.length + margin; i++) {
+//        int margin = (HEIGHT - lines.length) / 5;
+        for (int i = 2; i < lines.length + 2; i++) {
             for (int j = 0; j < WIDTH; j++) {
-                if (lines[i - margin].length() > j) {
-                    sideBar[i][j] = lines[i - margin].charAt(j);
+                if (lines[i - 2].length() > j) {
+                    sideBar[i][j] = lines[i - 2].charAt(j);
                 } else sideBar[i][j] = ' ';
             }
         }
     }
 
     private void emptySpace() {
-        for (int i = 0; i < HEIGHT; i++)
+        for (int i = 0; i < 2; i++)
             for (int j = 0; j < WIDTH; j++)
                 sideBar[i][j] = '_';
     }
 
     private void createLines(Player player) {
         lines = new String[]{
-                "Commands:",
-                " menu",
-                "     8     ",
-                "  4     6  ",
-                "     2     ",
-                "",
-                "Your Class",
-                " " + player.getCurrentCharacter().getName(),
-                "",
+                "Type: "+ player.getCurrentCharacter().getName(),
+                "HP: "+player.getCurrentCharacter().getHp(),
+                "Magic Res: "+player.getCurrentCharacter().getMagicResistance(),
+                "Armor: " +player.getCurrentCharacter().getArmor(),
+                "________________",
                 "Equipement:",
                 " " + player.getCurrentWeapon().getName(),
-                " " + player.getCurrentArmor().getName()
+                " " + player.getCurrentArmor().getName(),
+                "________________",
+                "________________",
+                "     CHAT      ",
+                "________________",
         };
     }
 

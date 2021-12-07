@@ -8,6 +8,9 @@ public class Elf extends Going implements CharacterType {
 
     public Elf() {
         super.typeOfPower = new Magic();
+        super.hp =10;
+        super.magicResistance = 13;
+        super.armor = 3;
     }
 
     @Override
