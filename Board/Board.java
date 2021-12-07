@@ -1,5 +1,6 @@
 package StrategyProject.Board;
 
+import StrategyProject.Player;
 import StrategyProject.characters.Character;
 import StrategyProject.characters.DisplayCharacter;
 
@@ -8,7 +9,7 @@ import java.util.Random;
 
 public class Board {
     final int HEIGHT = 25;
-    final int WIDTH = 50;
+    final int WIDTH = 56;
 
     SideBar sideBar;
     private char[][] board;
@@ -85,9 +86,9 @@ public class Board {
 
 
 
-    public void initBoard() {
+    public void initBoard(Player player) {
         drawBoard();
-        sideBar.drawSideBar();
+        sideBar.drawSideBar(player);
         updateBoard(0);
     }
 

@@ -1,7 +1,7 @@
 package StrategyProject.eq;
 
 import StrategyProject.eq.armors.Armor;
-import StrategyProject.eq.armors.ArmorOfWarmog;
+import StrategyProject.eq.armors.Warmog;
 import StrategyProject.eq.armors.Rag;
 import StrategyProject.eq.weapons.Hammer;
 import StrategyProject.eq.weapons.Stick;
@@ -18,7 +18,7 @@ public class Equipment {
 
 
     public final Armor[] availableArmors =  new Armor[]{
-            new ArmorOfWarmog(),
+            new Warmog(),
             new Rag()
     };
 

@@ -11,6 +11,7 @@ public abstract class Character{
 //    public abstract String getCharacter
 
     public abstract String typeOfPower();
+    public abstract String getName();
 
     public void createCharacter(){
         type.createCharacter();

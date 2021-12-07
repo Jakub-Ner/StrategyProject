@@ -3,7 +3,8 @@ package StrategyProject.eq.armors;
 
 public class Rag extends Armor {
     public Rag() {
-        super(2, 0);
+        super.armor = 10;
+        super.magicResistance = 0;
     }
 
     @Override

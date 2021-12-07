@@ -1,8 +1,9 @@
 package StrategyProject.eq.armors;
 
-public class ArmorOfWarmog extends Armor{
-    public ArmorOfWarmog() {
-        super(10, 0);
+public class Warmog extends Armor{
+    public Warmog() {
+        super.armor = 10;
+        super.magicResistance = 0;
     }
 
     @Override

@@ -6,9 +6,7 @@ public abstract class Armor extends Item {
     int armor;
     int magicResistance;
 
-    public Armor(int armor, int magicResistance) {
-        this.armor = armor;
-        this.magicResistance = magicResistance;
+    public Armor() {
     }
 
 

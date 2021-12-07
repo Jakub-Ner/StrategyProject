@@ -19,4 +19,8 @@ public class Animal extends Grubbing implements CharacterType {
     public void createCharacter() {
         System.out.println("I am an Animal\n");
     }
+    @Override
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
 }

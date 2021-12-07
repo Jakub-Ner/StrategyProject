@@ -24,7 +24,7 @@ public class Game extends BackToStart {
         if (option == 1) {
             player = new Player();
             board = new Board(player.getCurrentCharacter());
-            board.initBoard();
+            board.initBoard(player);
             while (option != 1234) {
                 takeInput();
                 board.updateBoard(option);

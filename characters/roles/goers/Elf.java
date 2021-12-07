@@ -19,4 +19,8 @@ public class Elf extends Going implements CharacterType {
 
         System.out.println("I am an Elf\n");
     }
+    @Override
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
 }

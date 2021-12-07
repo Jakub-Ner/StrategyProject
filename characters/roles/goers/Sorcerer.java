@@ -18,4 +18,8 @@ public class Sorcerer extends Going implements CharacterType {
     public void createCharacter() {
         System.out.println("I am a Sorcerer\n");
     }
+    @Override
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
 }

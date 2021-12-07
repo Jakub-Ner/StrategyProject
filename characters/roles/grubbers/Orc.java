@@ -20,4 +20,8 @@ public class Orc extends Grubbing implements CharacterType {
     public void createCharacter() {
         System.out.println("I am a Orc\n");
     }
+    @Override
+    public String getName() {
+        return this.getClass().getSimpleName();
+    }
 }
