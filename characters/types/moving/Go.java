@@ -1,6 +1,7 @@
 package StrategyProject.characters.types.moving;
 
 import StrategyProject.Fight;
+import StrategyProject.GameOver;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -36,7 +37,9 @@ public class Go implements Move {
                     break;
                 }
                 else if(board[location[i][0]][location[i][1]] >= '0' && board[location[i][0]][location[i][1]] <= '9'){
-                    Fight.fight((int)(board[location[i][0]][location[i][1]]-'0'));
+                    if(Fight.fight((int)(board[location[i][0]][location[i][1]]-'0'))){
+                        GameOver.gameOver();
+                    }
                     return false;
 
                 }

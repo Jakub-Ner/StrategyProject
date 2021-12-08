@@ -10,7 +10,7 @@ public class Paladin extends Going implements CharacterType {
     public Paladin() {
         super.typeOfPower = new MagicalPhysicalPower();
         super.hp =30;
-        super.magicResistance = 13;
+        super.magicResistance = 1;
         super.armor = 5;
     }
 

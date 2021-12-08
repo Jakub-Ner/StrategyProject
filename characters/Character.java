@@ -53,15 +53,19 @@ public abstract class Character {
     }
 
     public void changeHP(int change) {
-        hp += change;
+        System.out.println("changeHP"+ this.hp);
+        System.out.println("change"+ change);
+
+        this.hp += change;
+        System.out.println("changeHP"+ this.hp);
     }
 
     public void changeMagicResistance(int change) {
-        magicResistance += change;
+        this.magicResistance += change;
     }
 
     public void changeArmor(int change) {
-        armor += change;
+        this.armor += change;
     }
 
 

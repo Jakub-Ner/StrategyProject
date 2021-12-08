@@ -9,7 +9,7 @@ public class Elf extends Going implements CharacterType {
     public Elf() {
         super.typeOfPower = new MagicalPower();
         super.hp =30;
-        super.magicResistance = 13;
+        super.magicResistance = 8;
         super.armor = 3;
     }
 

@@ -11,7 +11,7 @@ public class Dwarf extends Grubbing implements CharacterType {
         typeOfAttack = new PhysicalPower();
         super.hp =34;
         super.magicResistance = 8;
-        super.armor = 10;
+        super.armor = 8;
     }
 
     @Override

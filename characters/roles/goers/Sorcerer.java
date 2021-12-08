@@ -8,7 +8,7 @@ public class Sorcerer extends Going implements CharacterType {
 
     public Sorcerer() {
         super.typeOfPower = new MagicalPower();
-        super.hp =18;
+        super.hp =23;
         super.magicResistance = 3;
         super.armor = 1;
     }

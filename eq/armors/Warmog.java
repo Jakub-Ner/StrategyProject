@@ -2,7 +2,7 @@ package StrategyProject.eq.armors;
 
 public class Warmog extends Armor{
     public Warmog() {
-        super.armor = 2;
+        super.armor = 4;
         super.magicResistance = 0;
     }
 

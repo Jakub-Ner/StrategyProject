@@ -5,7 +5,7 @@ import StrategyProject.characters.roles.PhysicalPower;
 public class Hammer extends Weapon {
 
     public Hammer() {
-        super(5, 0,false);
+        super(15, 0,false);
         super.typeOfAttack = new PhysicalPower();
 
     }
@@ -18,6 +18,6 @@ public class Hammer extends Weapon {
 
     @Override
     public int specialEffect() {
-        return 0;
+        return 1;
     }
 }

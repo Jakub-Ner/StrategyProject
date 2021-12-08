@@ -10,7 +10,7 @@ public class Orc extends Grubbing implements CharacterType {
         super.typeOfPower = new PhysicalPower();
         super.hp =31;
         super.magicResistance = 2;
-        super.armor = 12;
+        super.armor = 7;
     }
 
     @Override

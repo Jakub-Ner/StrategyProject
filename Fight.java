@@ -7,27 +7,31 @@ public class Fight {
     public static String[] messages;
 
 
-    public static void fight(int id) {
+    public static boolean fight(int id) {
         NPC npc = new Board().npc;
         npc.setCurrentNPC(id);
 
         Player player = new Game().player;
 
         attack(player, npc);
-        if (!npc.die())
+        boolean result = npc.die();
+        System.out.println(2);
+        if (!result) {
             attack(npc, player);
-        player.die();
+        }
+        return player.die();
     }
 
     private static void attack(Player itBeats, Player isBeaten) {
         int realDmg = dmgTaken(itBeats, isBeaten);
+        System.out.println(realDmg);
+
         if (itBeats.getCurrentWeapon().getSpecialEffect()) {
             realDmg *= itBeats.getCurrentWeapon().specialEffect();
         }
-        isBeaten.getCurrentCharacter().changeHP(realDmg);
+        isBeaten.getCurrentCharacter().changeHP(realDmg); //
         System.out.println(isBeaten.getCurrentCharacter().getName());
         System.out.println(isBeaten.getCurrentCharacter().getHp());
-        System.out.println(realDmg);
     }
 
     private static int dmgTaken(Player itBeats, Player isBeaten) {
@@ -36,6 +40,7 @@ public class Fight {
 
         if (magicDmg > 0) {
             int magicResistance = isBeaten.getCurrentCharacter().getMagicResistance() + isBeaten.getCurrentArmor().getMagicResistance();
+            System.out.println(magicResistance+" <-Mr dmg->"+ magicDmg);
             if (magicDmg <= magicResistance) magicDmg = 0;
             else magicDmg-=magicResistance;
             if (characterTypeOfPower[1] == 0) return -magicDmg;
@@ -46,7 +51,6 @@ public class Fight {
         if (physicalDmg <= armor) physicalDmg = 0;
         else physicalDmg -= armor;
 
-        int odp =-(magicDmg + physicalDmg);
-        return odp;
+        return -(physicalDmg+magicDmg);
     }
 }
