@@ -5,18 +5,19 @@ import StrategyProject.characters.roles.PhysicalPower;
 public class Hammer extends Weapon {
 
     public Hammer() {
-        super(5, false);
+        super(85, 0,false);
         super.typeOfAttack = new PhysicalPower();
 
     }
-    @Override
-    public String typeOfPower() {
-        return super.typeOfAttack.typeOfPower();
-    }
+
     @Override
     public String getName() {
         return this.getClass().getSimpleName();
     }
 
 
+    @Override
+    public int specialEffect() {
+        return 0;
+    }
 }

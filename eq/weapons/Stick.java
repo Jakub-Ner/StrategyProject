@@ -4,13 +4,9 @@ import StrategyProject.characters.roles.PhysicalPower;
 
 public class Stick extends Weapon{
     public Stick() {
-        super(2, true);
+        super(27, 0,true);
         super.typeOfAttack = new PhysicalPower();
 
-    }
-    @Override
-    public String typeOfPower() {
-        return super.typeOfAttack.typeOfPower();
     }
     @Override
     public String getName() {
@@ -18,4 +14,8 @@ public class Stick extends Weapon{
     }
 
 
+    @Override
+    public int specialEffect() {
+        return 0;
+    }
 }

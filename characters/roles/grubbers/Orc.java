@@ -8,14 +8,9 @@ public class Orc extends Grubbing implements CharacterType {
 
     public Orc() {
         super.typeOfPower = new PhysicalPower();
-        super.hp =11;
+        super.hp =31;
         super.magicResistance = 2;
         super.armor = 12;
-    }
-
-    @Override
-    public String typeOfPower() {
-        return super.typeOfPower.typeOfPower();
     }
 
     @Override

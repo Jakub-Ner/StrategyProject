@@ -1,15 +1,23 @@
 package StrategyProject.characters.roles;
 
 public class MagicalPhysicalPower implements TypeOfPower{
-    protected Magic magic;
+    protected MagicalPower magicalPower;
     protected PhysicalPower physicalPower;
 
     public MagicalPhysicalPower(){
-        magic = new Magic();
+        magicalPower = new MagicalPower();
         physicalPower = new PhysicalPower();
     }
 
     public String typeOfPower(){
-        return magic.typeOfPower() + physicalPower.typeOfPower();
+        return magicalPower.typeOfPower() + physicalPower.typeOfPower();
+    }
+
+
+    public int[] magicalOrPhysical(){
+        int [] magicalOrPhysical = new int[2];
+        magicalOrPhysical[0] = 1;
+        magicalOrPhysical[1] = 2;
+        return magicalOrPhysical;
     }
 }

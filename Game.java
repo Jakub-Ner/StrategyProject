@@ -8,26 +8,35 @@ import java.util.Scanner;
 public class Game extends BackToStart {
     final int[] options = new int[]{1, 2};
     protected int option;
-
+    public static Player player;
+    public static int round;
+    Board board;
 
     public Game() {
     }
 
     public void run() {
         option = 0;
-        Player player;
-        Board board;
 
         while (option == 0) {
             option = welcomeScreen();
         }
         if (option == 1) {
             player = new Player();
-            board = new Board(player.getCurrentCharacter());
+            player.generateCharacter();
+            player.chooseItems();
+
+            round = 1;
+            board = new Board();
             board.initBoard(player);
             while (option != 1234) {
                 takeInput();
+                if(player.getCurrentCharacter().getHp() <=0){
+                    System.out.println("you have die!");
+                    break;
+                }
                 board.updateBoard(option);
+                round ++;
             }
         }
     }

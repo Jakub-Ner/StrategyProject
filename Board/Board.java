@@ -13,17 +13,14 @@ public class Board {
     final int WIDTH = 61;
 
     SideBar sideBar;
-    private char[][] board;
-    NPC npc;
+    public static char[][] board;
+    public static NPC npc;
     Character character;
     DisplayCharacter displayCharacter;
 
-    public Board(Character character) {
-        board = new char[HEIGHT][WIDTH * 3 / 4];
-        sideBar = new SideBar(HEIGHT, WIDTH / 4);
-        this.character = character;
-        displayCharacter = new DisplayCharacter();
+    public Board() {
     }
+
 
     private void obstacles() {
         Random random = new Random();
@@ -87,19 +84,24 @@ public class Board {
 
 
     public void initBoard(Player player) {
+        board = new char[HEIGHT][WIDTH * 3 / 4];
+        sideBar = new SideBar(HEIGHT, WIDTH / 4);
+        this.character = player.getCurrentCharacter();
+        displayCharacter = new DisplayCharacter();
+        npc = new NPC(board);
+
         drawBoard();
         sideBar.drawSideBar(player);
-        drawNPC();
+//        drawNPC();
         updateBoard(0);
     }
 
     private void drawNPC() {
-        npc = new NPC(board);
 
         for (int i = 0; i < npc.getListOfNPC().size(); i++) {
             int[][] npcLocation = npc.getListOfNPC().get(i).getLocation();
             for (int j = 0; j < npcLocation.length; j++) {
-                board[npcLocation[j][0]][npcLocation[j][1]] = (char)('0'+i%10);
+                board[npcLocation[j][0]][npcLocation[j][1]] = (char) ('0' + i % 10);
             }
         }
     }
@@ -134,6 +136,7 @@ public class Board {
                 board[newLocation[i][0]][newLocation[i][1]] = shape[i];
             }
             space();
+            drawNPC();
             drawScreen();
         }
     }

@@ -1,21 +1,23 @@
 package StrategyProject;
 
+import StrategyProject.Board.Board;
 import StrategyProject.characters.Character;
 import StrategyProject.characters.Characters;
 import StrategyProject.eq.armors.Armor;
 import StrategyProject.eq.Equipment;
 import StrategyProject.eq.weapons.Weapon;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player extends Characters {
-    Character currentCharacter;
-    Weapon currentWeapon;
-    Armor currentArmor;
+    protected Character currentCharacter;
+    protected Weapon currentWeapon;
+    protected Armor currentArmor;
 
     public Player() {
-        generateCharacter();
-        chooseItems();
+//        generateCharacter();
+//        chooseItems();
     }
 
     public void chooseItems() {
@@ -29,17 +31,37 @@ public class Player extends Characters {
         eq.listOfArmors.add(currentArmor);
     }
 
-    private int chooseWeapon(){
-        System.out.println("Select weapon\n" +
+    public boolean die() {
+        System.out.println("in die");
+        System.out.println(currentCharacter.getHp());
+        System.out.println(currentCharacter.getName());
+        if (currentCharacter.getHp() <= 0) {
+            char[][] board = new Board().board;
+            int[][] eraseCharacterFromBoard = currentCharacter.getLocation();
+            for (int i = 0; i < eraseCharacterFromBoard.length; i++) {
+                board[eraseCharacterFromBoard[i][0]][eraseCharacterFromBoard[i][1]] = ' ';
+            }
+            System.out.println(listOfCharacters.size());
+            listOfCharacters.remove(currentCharacter);
+            System.out.println(listOfCharacters.size());
+            return true;
+        }
+        return false;
+    }
+
+    private int chooseWeapon() {
+        System.out.println("Select a weapon\n" +
                 " [1]-Hammer\n" +
-                " [2]-Stick");
+                " [2]-Stick\n" +
+                " [3]-Shadow Wand\n");
         int option = new Scanner(System.in).nextInt();
         return option;
     }
-    private int chooseArmor(){
-        System.out.println("Select weapon\n" +
+
+    private int chooseArmor() {
+        System.out.println("Select an armor\n" +
                 " [1]-Armor of Warmog\n" +
-                " [2]-Rag");
+                " [2]-Rag\n");
         int option = new Scanner(System.in).nextInt();
         return option;
     }
@@ -68,9 +90,11 @@ public class Player extends Characters {
     public Character getCurrentCharacter() {
         return currentCharacter;
     }
+
     public Weapon getCurrentWeapon() {
         return currentWeapon;
     }
+
     public Armor getCurrentArmor() {
         return currentArmor;
     }

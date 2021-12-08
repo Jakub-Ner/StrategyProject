@@ -35,8 +35,9 @@ public class Go implements Move {
                     counter++;
                     break;
                 }
-                else if(board[location[i][0]][location[i][1]] < '0' || board[location[i][0]][location[i][1]] > '9'){
-                    Fight.fight();
+                else if(board[location[i][0]][location[i][1]] >= '0' && board[location[i][0]][location[i][1]] <= '9'){
+                    Fight.fight((int)(board[location[i][0]][location[i][1]]-'0'));
+                    return false;
 
                 }
 
@@ -59,6 +60,8 @@ public class Go implements Move {
         location[2][0]+=1;
         location[3][0]+=1;
         location[3][1]+=1;
+
+        System.out.println(Arrays.deepToString(location));
         return location;
     }
 

@@ -3,7 +3,7 @@ package StrategyProject.eq.armors;
 
 public class Rag extends Armor {
     public Rag() {
-        super.armor = 10;
+        super.armor = 3;
         super.magicResistance = 0;
     }
 

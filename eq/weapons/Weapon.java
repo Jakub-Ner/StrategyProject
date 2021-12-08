@@ -1,19 +1,30 @@
 package StrategyProject.eq.weapons;
 
-import StrategyProject.characters.roles.PhysicalPower;
+import StrategyProject.characters.roles.TypeOfPower;
 import StrategyProject.eq.Item;
 
 public abstract class Weapon extends Item {
-    protected int damage;
-    protected PhysicalPower typeOfAttack;
+    protected int physicalDamage;
+    protected int magicalDamage;
+    protected TypeOfPower typeOfAttack;
 
-    public Weapon(int damage, boolean specialEffect) {
-        this.damage = damage;
-        this.specialEffect = specialEffect;
+    public Weapon(int physicalDamage, int MagicalDamage, boolean specialEffect) {
+        this.physicalDamage = physicalDamage;
+        this.magicalDamage = MagicalDamage;
+        super.specialEffect = specialEffect;
+    }
+    public abstract int specialEffect();
+
+    public int[] magicalOrPhysical() {
+        return typeOfAttack.magicalOrPhysical();
+    }
+    public String typeOfPower() {
+        return typeOfAttack.typeOfPower();
     }
 
-    public abstract String typeOfPower();
-
+    public int magicalDamage(){return magicalDamage;}
+    public int physicalDamage(){return physicalDamage;}
+    public boolean getSpecialEffect(){return specialEffect;}
 
 
 }

@@ -13,9 +13,15 @@ public abstract class Character {
 
 //    public abstract String getCharacter
 
-    public abstract String typeOfPower();
-
     public abstract String getName();
+
+    public String typeOfPower() {
+        return typeOfPower.typeOfPower();
+    }
+
+    public int[] magicalOrPhysical() {
+        return typeOfPower.magicalOrPhysical();
+    }
 
     public void createCharacter() {
         type.createCharacter();
@@ -24,9 +30,11 @@ public abstract class Character {
     public int[][] moveCharacter(int goFurther, char[][] board) {
         return location.moveCharacter(goFurther, board);
     }
+
     public int[][] moveNPC(char[][] board) {
         return location.moveNPC(board);
     }
+
 
     public int[][] getLocation() {
         return location.getLocation();
@@ -43,6 +51,20 @@ public abstract class Character {
     public int getArmor() {
         return armor;
     }
+
+    public void changeHP(int change) {
+        hp += change;
+    }
+
+    public void changeMagicResistance(int change) {
+        magicResistance += change;
+    }
+
+    public void changeArmor(int change) {
+        armor += change;
+    }
+
+
 }
 
 
