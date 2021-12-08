@@ -9,7 +9,6 @@ public class ShadowWand extends Weapon {
         super(1, 3, true);
         super.typeOfAttack = new MagicalPower();
         this.lastRound = 0;
-
     }
 
     @Override

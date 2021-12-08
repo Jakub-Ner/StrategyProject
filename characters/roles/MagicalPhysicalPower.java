@@ -17,7 +17,7 @@ public class MagicalPhysicalPower implements TypeOfPower{
     public int[] magicalOrPhysical(){
         int [] magicalOrPhysical = new int[2];
         magicalOrPhysical[0] = 1;
-        magicalOrPhysical[1] = 2;
+        magicalOrPhysical[1] = 1;
         return magicalOrPhysical;
     }
 }

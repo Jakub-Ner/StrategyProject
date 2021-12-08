@@ -1,11 +1,8 @@
 package StrategyProject;
 
 import StrategyProject.characters.Character;
-import StrategyProject.characters.Characters;
-import StrategyProject.eq.armors.Armor;
 import StrategyProject.eq.armors.Rag;
 import StrategyProject.eq.weapons.Stick;
-import StrategyProject.eq.weapons.Weapon;
 
 import java.util.List;
 import java.util.Random;

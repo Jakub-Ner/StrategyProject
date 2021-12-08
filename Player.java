@@ -7,7 +7,6 @@ import StrategyProject.eq.armors.Armor;
 import StrategyProject.eq.Equipment;
 import StrategyProject.eq.weapons.Weapon;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Player extends Characters {
@@ -24,26 +23,24 @@ public class Player extends Characters {
         Equipment eq = new Equipment();
         int option = chooseWeapon();
         currentWeapon = eq.availableWeapons[option - 1];
+        System.out.println(currentWeapon.getName());
         eq.listOfWeapons.add(currentWeapon);
 
         option = chooseArmor();
         currentArmor = eq.availableArmors[option - 1];
+        System.out.println(currentArmor.getName());
+
         eq.listOfArmors.add(currentArmor);
     }
 
     public boolean die() {
-        System.out.println("in die");
-        System.out.println(currentCharacter.getHp());
-        System.out.println(currentCharacter.getName());
         if (currentCharacter.getHp() <= 0) {
             char[][] board = new Board().board;
             int[][] eraseCharacterFromBoard = currentCharacter.getLocation();
             for (int i = 0; i < eraseCharacterFromBoard.length; i++) {
                 board[eraseCharacterFromBoard[i][0]][eraseCharacterFromBoard[i][1]] = ' ';
             }
-            System.out.println(listOfCharacters.size());
             listOfCharacters.remove(currentCharacter);
-            System.out.println(listOfCharacters.size());
             return true;
         }
         return false;
