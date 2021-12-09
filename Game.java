@@ -23,23 +23,26 @@ public class Game extends BackToStart {
         }
         if (option == 1) {
             player = new Player();
-            player.generateCharacter();
-            player.getCurrentCharacter().getBoost();
-            player.chooseItems();
-            System.out.println(" tu run");
-            round = 1;
-            board = new Board();
-            System.out.println(" tu run");
-            board.initBoard(player);
-            while (option != 1234) {
-                takeInput();
-                if (player.getCurrentCharacter().getHp() <= 0) {
-                    System.out.println("you have die!");
-                    break;
-                }
-                board.updateBoard(option);
-                round++;
+            play();
+        }
+    }
+
+    public void play() {
+        player.generateCharacter();
+        player.getCurrentCharacter().getBoost();
+        player.chooseItems();
+        round = 1;
+        board = new Board();
+        board.initBoard(player);
+
+        while (option != 100) {
+            takeInput();
+            if (player.getCurrentCharacter().getHp() <= 0) {
+                System.out.println("you have die!");
+                break;
             }
+            board.updateBoard(option);
+            round++;
         }
     }
 

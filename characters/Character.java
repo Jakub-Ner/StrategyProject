@@ -20,6 +20,7 @@ public abstract class Character {
         this.nick = nick;
     }
 
+
     public String GetNick() {
         return nick;
     }
