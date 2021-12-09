@@ -19,7 +19,7 @@ public class Equipment {
     };
 
 
-    public final Armor[] availableArmors =  new Armor[]{
+    public final Armor[] availableArmors = new Armor[]{
             new Warmog(),
             new Rag()
     };

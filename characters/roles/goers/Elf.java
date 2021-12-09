@@ -8,7 +8,7 @@ public class Elf extends Going implements CharacterType {
 
     public Elf() {
         super.typeOfPower = new MagicalPower();
-        super.hp =30;
+        super.hp = 30;
         super.magicResistance = 8;
         super.armor = 3;
     }
@@ -18,6 +18,7 @@ public class Elf extends Going implements CharacterType {
 
         System.out.println("I am an Elf\n");
     }
+
     @Override
     public String getName() {
         return this.getClass().getSimpleName();

@@ -10,10 +10,19 @@ public abstract class Character {
     protected int hp;
     protected int magicResistance;
     protected int armor;
+    protected String nick;
 
 //    public abstract String getCharacter
 
     public abstract String getName();
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public String GetNick() {
+        return nick;
+    }
 
     public String typeOfPower() {
         return typeOfPower.typeOfPower();
@@ -35,6 +44,11 @@ public abstract class Character {
         return location.moveNPC(board);
     }
 
+    public void getBoost() {
+        this.hp = this.hp * 2;
+        this.armor += 3;
+        this.magicResistance += 3;
+    }
 
     public int[][] getLocation() {
         return location.getLocation();
@@ -53,11 +67,11 @@ public abstract class Character {
     }
 
     public void changeHP(int change) {
-        System.out.println("changeHP"+ this.hp);
-        System.out.println("change"+ change);
+        System.out.println("changeHP" + this.hp);
+        System.out.println("change" + change);
 
         this.hp += change;
-        System.out.println("changeHP"+ this.hp);
+        System.out.println("changeHP" + this.hp);
     }
 
     public void changeMagicResistance(int change) {

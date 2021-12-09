@@ -35,9 +35,8 @@ public class Go implements Move {
                     if (sign != ' ') specialMovement++;
                     counter++;
                     break;
-                }
-                else if(board[location[i][0]][location[i][1]] >= '0' && board[location[i][0]][location[i][1]] <= '9'){
-                    if(Fight.fight((int)(board[location[i][0]][location[i][1]]-'0'))){
+                } else if (board[location[i][0]][location[i][1]] >= '0' && board[location[i][0]][location[i][1]] <= '9') {
+                    if (Fight.fight((int) (board[location[i][0]][location[i][1]] - '0'))) {
                         GameOver.gameOver();
                     }
                     return false;
@@ -51,20 +50,19 @@ public class Go implements Move {
     }
 
     @Override
-    public  int[][] moveNPC(char[][] board) {
-        int x = new Random().nextInt(board[0].length - 5)+4;
-        int y = new Random().nextInt(board.length - 5)+4;
+    public int[][] moveNPC(char[][] board) {
+        int x = new Random().nextInt(board[0].length - 5) + 4;
+        int y = new Random().nextInt(board.length - 5) + 4;
 
         for (int i = 0; i < location.length; i++) {
             location[i][0] = y;
             location[i][1] = x;
         }
-        location[1][1]+=1;
-        location[2][0]+=1;
-        location[3][0]+=1;
-        location[3][1]+=1;
+        location[1][1] += 1;
+        location[2][0] += 1;
+        location[3][0] += 1;
+        location[3][1] += 1;
 
-        System.out.println(Arrays.deepToString(location));
         return location;
     }
 

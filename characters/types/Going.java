@@ -4,7 +4,7 @@ import StrategyProject.characters.Character;
 import StrategyProject.characters.types.moving.Go;
 
 public abstract class Going extends Character {
-    public Going(){
+    public Going() {
         super.location = new Go();
     }
 }

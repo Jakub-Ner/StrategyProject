@@ -8,7 +8,7 @@ public class Sorcerer extends Going implements CharacterType {
 
     public Sorcerer() {
         super.typeOfPower = new MagicalPower();
-        super.hp =23;
+        super.hp = 23;
         super.magicResistance = 3;
         super.armor = 1;
     }
@@ -17,6 +17,7 @@ public class Sorcerer extends Going implements CharacterType {
     public void createCharacter() {
         System.out.println("I am a Sorcerer\n");
     }
+
     @Override
     public String getName() {
         return this.getClass().getSimpleName();

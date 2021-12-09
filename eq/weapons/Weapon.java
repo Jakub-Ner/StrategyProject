@@ -13,18 +13,28 @@ public abstract class Weapon extends Item {
         this.magicalDamage = MagicalDamage;
         super.specialEffect = specialEffect;
     }
+
     public abstract int specialEffect();
 
     public int[] magicalOrPhysical() {
         return typeOfAttack.magicalOrPhysical();
     }
+
     public String typeOfPower() {
         return typeOfAttack.typeOfPower();
     }
 
-    public int magicalDamage(){return magicalDamage;}
-    public int physicalDamage(){return physicalDamage;}
-    public boolean getSpecialEffect(){return specialEffect;}
+    public int magicalDamage() {
+        return magicalDamage;
+    }
+
+    public int physicalDamage() {
+        return physicalDamage;
+    }
+
+    public boolean getSpecialEffect() {
+        return specialEffect;
+    }
 
 
 }

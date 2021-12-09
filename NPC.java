@@ -14,19 +14,24 @@ public class NPC extends Player {
         setLocation(board);
         super.currentWeapon = new Stick();
         super.currentArmor = new Rag();
+
     }
-    public void setCurrentNPC(int id){
+
+    public void setCurrentNPC(int id) {
         currentCharacter = super.listOfCharacters.get(id);
     }
-    public void setLocation(char[][] board){
-        for(int i =0; i< super.listOfCharacters.size(); i++){
+
+    public void setLocation(char[][] board) {
+        for (int i = 0; i < super.listOfCharacters.size(); i++) {
             super.listOfCharacters.get(i).moveNPC(board);
         }
 
     }
-    public List<Character> getListOfNPC(){
+
+    public List<Character> getListOfNPC() {
         return super.listOfCharacters;
     }
+
     private void createNPC() {
         int number = 10;
         for (int i = 0; i < number; i++) {

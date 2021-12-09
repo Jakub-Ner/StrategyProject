@@ -34,7 +34,6 @@ public class Player extends Characters {
     }
 
     public boolean die() {
-        System.out.println(1);
         if (currentCharacter.getHp() <= 0) {
             char[][] board = new Board().board;
             int[][] eraseCharacterFromBoard = currentCharacter.getLocation();
@@ -81,6 +80,9 @@ public class Player extends Characters {
                 super.listOfCharacters.add(currentCharacter);
                 created = true;
                 currentCharacter.createCharacter();
+                System.out.println("Name your character!");
+                String nick = new Scanner(System.in).nextLine();
+                currentCharacter.setNick(nick);
             }
         }
     }

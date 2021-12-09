@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Characters {
-    protected final Character [] availableRoles = new Character[]{
+    protected final Character[] availableRoles = new Character[]{
             new Sorcerer(),
             new Dwarf(),
             new Elf(),

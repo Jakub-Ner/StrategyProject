@@ -35,10 +35,10 @@ public class SideBar {
 
     private void createLines(Player player) {
         lines = new String[]{
-                "Type: "+ player.getCurrentCharacter().getName(),
-                "HP: "+player.getCurrentCharacter().getHp(),
-                "Magic Res: "+player.getCurrentCharacter().getMagicResistance(),
-                "Armor: " +player.getCurrentCharacter().getArmor(),
+                "Type: " + player.getCurrentCharacter().getName(),
+                "HP: " + player.getCurrentCharacter().getHp(),
+                "Magic Res: " + player.getCurrentCharacter().getMagicResistance(),
+                "Armor: " + player.getCurrentCharacter().getArmor(),
                 "________________",
                 "Equipement:",
                 " " + player.getCurrentWeapon().getName(),

@@ -5,7 +5,7 @@ import StrategyProject.characters.roles.PhysicalPower;
 public class Hammer extends Weapon {
 
     public Hammer() {
-        super(15, 0,false);
+        super(15, 0, false);
         super.typeOfAttack = new PhysicalPower();
 
     }

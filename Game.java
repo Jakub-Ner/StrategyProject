@@ -24,19 +24,21 @@ public class Game extends BackToStart {
         if (option == 1) {
             player = new Player();
             player.generateCharacter();
+            player.getCurrentCharacter().getBoost();
             player.chooseItems();
-
+            System.out.println(" tu run");
             round = 1;
             board = new Board();
+            System.out.println(" tu run");
             board.initBoard(player);
             while (option != 1234) {
                 takeInput();
-                if(player.getCurrentCharacter().getHp() <=0){
+                if (player.getCurrentCharacter().getHp() <= 0) {
                     System.out.println("you have die!");
                     break;
                 }
                 board.updateBoard(option);
-                round ++;
+                round++;
             }
         }
     }
@@ -61,8 +63,8 @@ public class Game extends BackToStart {
             while (counter < input.length() && input.charAt(counter) > '9') {
                 counter++;
             }
-            if(counter < input.length()){
-                option = (int)(input.charAt(counter) - '0');
+            if (counter < input.length()) {
+                option = (int) (input.charAt(counter) - '0');
             }
         }
     }

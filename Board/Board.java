@@ -19,6 +19,7 @@ public class Board {
     DisplayCharacter displayCharacter;
 
     public Board() {
+
     }
 
 
@@ -51,7 +52,7 @@ public class Board {
                 if (start[i][coordinate] + direction <= 0
                         || (coordinate == 0 && start[i][coordinate] + direction >= board.length)
                         || (coordinate == 1 && start[i][coordinate] + direction >= board[0].length)) {
-                    break;
+                    continue;
                 }
                 licznik++;
             }
@@ -78,12 +79,13 @@ public class Board {
         int[][] fields2 = new int[][]{
                 {board.length - 2, board[0].length - 2}, {board.length - 2, board[0].length - 1},
                 {board.length - 1, board[0].length - 2}, {board.length - 1, board[0].length - 1}};
-        partOfBoard(12, fields2);
+        partOfBoard(332, fields2);
 
     }
 
 
     public void initBoard(Player player) {
+
         board = new char[HEIGHT][WIDTH * 3 / 4];
         sideBar = new SideBar(HEIGHT, WIDTH / 4);
         this.character = player.getCurrentCharacter();

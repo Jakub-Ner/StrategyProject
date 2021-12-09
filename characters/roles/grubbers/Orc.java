@@ -8,7 +8,7 @@ public class Orc extends Grubbing implements CharacterType {
 
     public Orc() {
         super.typeOfPower = new PhysicalPower();
-        super.hp =31;
+        super.hp = 31;
         super.magicResistance = 2;
         super.armor = 7;
     }
@@ -17,6 +17,7 @@ public class Orc extends Grubbing implements CharacterType {
     public void createCharacter() {
         System.out.println("I am a Orc\n");
     }
+
     @Override
     public String getName() {
         return this.getClass().getSimpleName();

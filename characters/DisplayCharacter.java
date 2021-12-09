@@ -18,18 +18,18 @@ public class DisplayCharacter {
             'L', 'L',
             'b', 'b'};
 
-    public char[] characterShape(int goFurther){
-        if (goFurther == 8){
+    public char[] characterShape(int goFurther) {
+        if (goFurther == 8) {
             return back;
         }
-        if (goFurther == 2 || (counter==1 && goFurther == 0)){
+        if (goFurther == 2 || (counter == 1 && goFurther == 0)) {
             counter--;
             return front;
         }
-        if (goFurther == 4){
+        if (goFurther == 4) {
             return leftSide;
         }
-        if (goFurther == 6){
+        if (goFurther == 6) {
             return rightSide;
         }
         return new char[0];

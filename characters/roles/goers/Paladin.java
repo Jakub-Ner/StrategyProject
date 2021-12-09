@@ -9,7 +9,7 @@ public class Paladin extends Going implements CharacterType {
 
     public Paladin() {
         super.typeOfPower = new MagicalPhysicalPower();
-        super.hp =30;
+        super.hp = 30;
         super.magicResistance = 1;
         super.armor = 5;
     }
@@ -18,6 +18,7 @@ public class Paladin extends Going implements CharacterType {
     public void createCharacter() {
         System.out.println("I am a Paladin\n");
     }
+
     @Override
     public String getName() {
         return this.getClass().getSimpleName();

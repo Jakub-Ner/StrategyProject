@@ -11,7 +11,7 @@ public class Grub extends Go {
         }
         findDestination(goFurther);
         int[][] oldLocation = super.moveCharacterIngredient();
-        if (!super.condition(board, this.signs)) location = oldLocation;
+        if (!super.condition(board, this.signs)) super.location = oldLocation;
         return location;
     }
 //    @Override
