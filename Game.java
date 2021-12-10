@@ -29,7 +29,7 @@ public class Game {
     }
 
     public void play() {
-        player.createCharacter();
+        player.generateCharacter();
         player.getCurrentCharacter().getBoost();
         player.chooseItems();
         round = 1;

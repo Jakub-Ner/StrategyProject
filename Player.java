@@ -20,6 +20,13 @@ public class Player extends Characters {
 //        chooseItems();
     }
 
+    public void generateCharacter() {
+        createCharacter();
+        System.out.println("Name your character!");
+        String nick = new Scanner(System.in).nextLine();
+        currentCharacter.setNick(nick);
+    }
+
     public void chooseItems() {
         chooseWeapon();
         chooseArmor();
@@ -62,6 +69,7 @@ public class Player extends Characters {
         System.out.println(currentArmor.getName());
         eq.listOfArmors.add(currentArmor);
     }
+
     public boolean createCharacter(){
         if (super.listOfCharacters.size() == 0) {
             chooseCharacter();
@@ -69,9 +77,10 @@ public class Player extends Characters {
         }
         System.out.println("Select your character: ");
         for(int i=0; i< listOfCharacters.size(); i++){
-            System.out.println("["+ (i+1)+"]-"+listOfCharacters.get(i));
+            System.out.println("["+ (i+1)+"]-"+listOfCharacters.get(i).getName());
         }
-        System.out.println("["+listOfCharacters.size()+"]-Create new one");
+        System.out.println("["+(listOfCharacters.size()+1)+"]-Create new one");
+
         int option = validValue(listOfCharacters.size()+2);
 
         if (option == listOfCharacters.size()){
@@ -107,13 +116,6 @@ public class Player extends Characters {
             }
         }
         return option;
-    }
-
-    public void generateCharacter() {
-        chooseCharacter();
-        System.out.println("Name your character!");
-        String nick = new Scanner(System.in).nextLine();
-        currentCharacter.setNick(nick);
     }
 
     public Character getCurrentCharacter() {
