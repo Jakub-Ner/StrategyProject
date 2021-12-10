@@ -24,11 +24,11 @@ public abstract class Weapon extends Item {
         return typeOfAttack.typeOfPower();
     }
 
-    public int magicalDamage() {
+    public int getMagicalDamage() {
         return magicalDamage;
     }
 
-    public int physicalDamage() {
+    public int getPhysicalDamage() {
         return physicalDamage;
     }
 

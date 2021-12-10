@@ -44,7 +44,7 @@ public class Player extends Characters {
                 " [2]-Stick\n" +
                 " [3]-Shadow Wand\n");
         Equipment eq = new Equipment();
-        int option = validValue(eq.availableWeapons.length);
+        int option = validValue(eq.availableWeapons.length + 1);
 
         currentWeapon = eq.availableWeapons[option - 1];
         System.out.println(currentWeapon.getName());
@@ -56,7 +56,7 @@ public class Player extends Characters {
                 " [1]-Armor of Warmog\n" +
                 " [2]-Rag\n");
         Equipment eq = new Equipment();
-        int option = validValue(eq.availableArmors.length);
+        int option = validValue(eq.availableArmors.length + 1);
 
         currentArmor = eq.availableArmors[option - 1];
         System.out.println(currentArmor.getName());
@@ -72,7 +72,7 @@ public class Player extends Characters {
                 " [5]-Animal\n" +
                 " [6]-Orc\n"
         );
-        int option = validValue(super.availableRoles.length);
+        int option = validValue(super.availableRoles.length + 1);
 
         currentCharacter = super.availableRoles[option - 1];
         super.listOfCharacters.add(currentCharacter);

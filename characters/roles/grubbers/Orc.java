@@ -1,16 +1,19 @@
 package StrategyProject.characters.roles.grubbers;
 
+import StrategyProject.characters.Character;
 import StrategyProject.characters.CharacterType;
 import StrategyProject.characters.roles.PhysicalPower;
-import StrategyProject.characters.types.Grubbing;
+import StrategyProject.characters.types.moving.Grub;
 
-public class Orc extends Grubbing implements CharacterType {
+public class Orc extends Character implements CharacterType {
 
     public Orc() {
+        super.location = new Grub();
         super.typeOfPower = new PhysicalPower();
         super.hp = 31;
         super.magicResistance = 2;
         super.armor = 7;
+        super.nick = this.getClass().getSimpleName();
     }
 
     @Override

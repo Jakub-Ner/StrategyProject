@@ -13,6 +13,7 @@ public class Board {
     final int WIDTH = 61;
 
     SideBar sideBar;
+    Player player;
     public static char[][] board;
     public static NPC npc;
     Character character;
@@ -88,12 +89,13 @@ public class Board {
 
         board = new char[HEIGHT][WIDTH * 3 / 4];
         sideBar = new SideBar(HEIGHT, WIDTH / 4);
+        this.player = player;
         this.character = player.getCurrentCharacter();
         displayCharacter = new DisplayCharacter();
         npc = new NPC(board);
 
         drawBoard();
-        sideBar.drawSideBar(player);
+        sideBar.createSideBar(player);
 //        drawNPC();
         updateBoard(0);
     }
@@ -109,14 +111,16 @@ public class Board {
     }
 
     public void drawScreen() {
+        sideBar.basePart(this.player);
+        sideBar.updateChat();
         for (int i = 0; i < HEIGHT; i++) {
             System.out.print(Arrays.toString(board[i]));
-            if (i <= HEIGHT / 2 + 1) {
-                System.out.print(Arrays.toString(sideBar.getLine(i)));
-            } else {
-                int x = 10;
-            }
-            System.out.println(" ");
+            System.out.println(sideBar.getLine(i));
+//            if (i <= HEIGHT / 2 + 1) {
+//                System.out.print(Arrays.toString(sideBar.getLine(i)));
+//            } else {
+//                int x = 10;
+//            }
         }
 
     }

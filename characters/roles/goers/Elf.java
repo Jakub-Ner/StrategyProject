@@ -1,16 +1,19 @@
 package StrategyProject.characters.roles.goers;
 
+import StrategyProject.characters.Character;
 import StrategyProject.characters.CharacterType;
 import StrategyProject.characters.roles.MagicalPower;
-import StrategyProject.characters.types.Going;
+import StrategyProject.characters.types.moving.Go;
 
-public class Elf extends Going implements CharacterType {
+public class Elf extends Character implements CharacterType {
 
     public Elf() {
+        super.location = new Go();
         super.typeOfPower = new MagicalPower();
         super.hp = 30;
         super.magicResistance = 8;
         super.armor = 3;
+        super.nick = this.getClass().getSimpleName();
     }
 
     @Override

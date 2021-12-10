@@ -1,17 +1,21 @@
 package StrategyProject.characters.roles.goers;
 
+import StrategyProject.characters.Character;
 import StrategyProject.characters.CharacterType;
 import StrategyProject.characters.roles.MagicalPhysicalPower;
-import StrategyProject.characters.types.Going;
+import StrategyProject.characters.types.moving.Go;
 
-public class Paladin extends Going implements CharacterType {
+public class Paladin extends Character implements CharacterType {
 
 
     public Paladin() {
+        super.location = new Go();
         super.typeOfPower = new MagicalPhysicalPower();
         super.hp = 30;
         super.magicResistance = 1;
         super.armor = 5;
+        super.nick = this.getClass().getSimpleName();
+
     }
 
     @Override

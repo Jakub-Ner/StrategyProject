@@ -21,7 +21,7 @@ public abstract class Character {
     }
 
 
-    public String GetNick() {
+    public String getNick() {
         return nick;
     }
 
@@ -68,11 +68,7 @@ public abstract class Character {
     }
 
     public void changeHP(int change) {
-        System.out.println("changeHP" + this.hp);
-        System.out.println("change" + change);
-
         this.hp += change;
-        System.out.println("changeHP" + this.hp);
     }
 
     public void changeMagicResistance(int change) {

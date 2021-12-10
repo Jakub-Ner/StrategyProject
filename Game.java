@@ -39,7 +39,7 @@ public class Game extends BackToStart {
             takeInput();
             if (player.getCurrentCharacter().getHp() <= 0) {
                 System.out.println("you have die!");
-                break;
+                super.back("menu");
             }
             board.updateBoard(option);
             round++;
