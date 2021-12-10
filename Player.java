@@ -62,6 +62,24 @@ public class Player extends Characters {
         System.out.println(currentArmor.getName());
         eq.listOfArmors.add(currentArmor);
     }
+    public boolean createCharacter(){
+        if (super.listOfCharacters.size() == 0) {
+            chooseCharacter();
+            return false;
+        }
+        System.out.println("Select your character: ");
+        for(int i=0; i< listOfCharacters.size(); i++){
+            System.out.println("["+ (i+1)+"]-"+listOfCharacters.get(i));
+        }
+        System.out.println("["+listOfCharacters.size()+"]-Create new one");
+        int option = validValue(listOfCharacters.size()+2);
+
+        if (option == listOfCharacters.size()){
+            chooseCharacter();
+        }
+        else currentCharacter = listOfCharacters.get(option);
+        return true;
+    }
 
     private void chooseCharacter() {
         System.out.println("Select character's type\n" +

@@ -3,9 +3,10 @@ package StrategyProject;
 import StrategyProject.Board.Board;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
-public class Game extends BackToStart {
+public class Game {
     final int[] options = new int[]{1, 2};
     protected int option;
     public static Player player;
@@ -28,7 +29,7 @@ public class Game extends BackToStart {
     }
 
     public void play() {
-        player.generateCharacter();
+        player.createCharacter();
         player.getCurrentCharacter().getBoost();
         player.chooseItems();
         round = 1;
@@ -37,13 +38,20 @@ public class Game extends BackToStart {
 
         while (option != 100) {
             takeInput();
-            if (player.getCurrentCharacter().getHp() <= 0) {
-                System.out.println("you have die!");
-                super.back("menu");
-            }
+//            if (player.getCurrentCharacter().getHp() <= 0) {
+//                System.out.println("you have die!");
+//            }
             board.updateBoard(option);
             round++;
         }
+    }
+    public boolean backToMenu(String input) {
+        if (input.toUpperCase(Locale.ROOT).equals("MENU")) {
+            Fight.messages.clear();
+            play();
+            return true;
+        }
+        return false;
     }
 
     public int welcomeScreen() {
@@ -61,7 +69,7 @@ public class Game extends BackToStart {
     private void takeInput() {
         option = 0;
         String input = new Scanner(System.in).nextLine();
-        if (!super.back(input)) {
+        if (!backToMenu(input)) {
             int counter = 0;
             while (counter < input.length() && input.charAt(counter) > '9') {
                 counter++;
