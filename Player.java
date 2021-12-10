@@ -7,6 +7,7 @@ import StrategyProject.eq.armors.Armor;
 import StrategyProject.eq.Equipment;
 import StrategyProject.eq.weapons.Weapon;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player extends Characters {
@@ -20,17 +21,8 @@ public class Player extends Characters {
     }
 
     public void chooseItems() {
-        Equipment eq = new Equipment();
-        int option = chooseWeapon();
-        currentWeapon = eq.availableWeapons[option - 1];
-        System.out.println(currentWeapon.getName());
-        eq.listOfWeapons.add(currentWeapon);
-
-        option = chooseArmor();
-        currentArmor = eq.availableArmors[option - 1];
-        System.out.println(currentArmor.getName());
-
-        eq.listOfArmors.add(currentArmor);
+        chooseWeapon();
+        chooseArmor();
     }
 
     public boolean die() {
@@ -46,24 +38,32 @@ public class Player extends Characters {
         return false;
     }
 
-    private int chooseWeapon() {
+    private void chooseWeapon() {
         System.out.println("Select a weapon\n" +
                 " [1]-Hammer\n" +
                 " [2]-Stick\n" +
                 " [3]-Shadow Wand\n");
-        int option = new Scanner(System.in).nextInt();
-        return option;
+        Equipment eq = new Equipment();
+        int option = validValue(eq.availableWeapons.length);
+
+        currentWeapon = eq.availableWeapons[option - 1];
+        System.out.println(currentWeapon.getName());
+        eq.listOfWeapons.add(currentWeapon);
     }
 
-    private int chooseArmor() {
+    private void chooseArmor() {
         System.out.println("Select an armor\n" +
                 " [1]-Armor of Warmog\n" +
                 " [2]-Rag\n");
-        int option = new Scanner(System.in).nextInt();
-        return option;
+        Equipment eq = new Equipment();
+        int option = validValue(eq.availableArmors.length);
+
+        currentArmor = eq.availableArmors[option - 1];
+        System.out.println(currentArmor.getName());
+        eq.listOfArmors.add(currentArmor);
     }
 
-    public void generateCharacter() {
+    private void chooseCharacter() {
         System.out.println("Select character's type\n" +
                 " [1]-Sorcerer\n" +
                 " [2]-Dwarf\n" +
@@ -72,19 +72,30 @@ public class Player extends Characters {
                 " [5]-Animal\n" +
                 " [6]-Orc\n"
         );
-        boolean created = false;
-        while (!created) {
-            int option = new Scanner(System.in).nextInt();
-            if (option - 1 < super.availableRoles.length) {
-                currentCharacter = super.availableRoles[option - 1];
-                super.listOfCharacters.add(currentCharacter);
-                created = true;
-                currentCharacter.createCharacter();
-                System.out.println("Name your character!");
-                String nick = new Scanner(System.in).nextLine();
-                currentCharacter.setNick(nick);
+        int option = validValue(super.availableRoles.length);
+
+        currentCharacter = super.availableRoles[option - 1];
+        super.listOfCharacters.add(currentCharacter);
+        currentCharacter.createCharacter();
+    }
+
+    private int validValue(int n) {
+        int option = n;
+        while (option >= n || option < 1) {
+            try {
+                option = new Scanner(System.in).nextInt();
+            } catch (InputMismatchException ae) {
+                continue;
             }
         }
+        return option;
+    }
+
+    public void generateCharacter() {
+        chooseCharacter();
+        System.out.println("Name your character!");
+        String nick = new Scanner(System.in).nextLine();
+        currentCharacter.setNick(nick);
     }
 
     public Character getCurrentCharacter() {
